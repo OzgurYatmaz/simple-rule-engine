@@ -1,0 +1,17 @@
+package rules
+
+import com.sample.rules.model.Person
+
+rule "Is adult"
+    when
+        $person : Person(age >= 18)
+    then
+        System.out.println($person.getName() + " is an adult.");
+end
+
+rule "Is Child"
+    when
+        $person : Person(age < 18)
+    then
+        System.out.println($person.getName() + " is an child and has "+ (18 - $person.getAge()) + " years to become an adult");
+end
